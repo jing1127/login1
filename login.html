@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	    <script type="text/javascript" src="js/public.js" ></script>
+	    <style>
+	    	*{
+	    	  margin: 0px;
+	    	  padding:0px;
+	    	}
+	    	html{
+	    		font-size: 100px;
+	    	}
+	    	.container{
+	    		margin-top:1rem;
+	    		padding-bottom: 0.4rem;
+	    		border-top:1px solid #999;
+	    		border-bottom:1px solid #999;
+	    		width:6.4rem;
+	    		height: auto;
+	    		text-align: center;
+	    		font-size: 0.2rem;
+	    		color: #333;
+	    	}
+	    	.container header{
+	    		padding-top:0.4rem;
+	    		padding-bottom: 0.4rem;
+	    		width:6.4rem;
+	    		text-align: center;
+	    		font-size: 0.4rem;
+	    	}
+	    	.container .text,.container .btn,.container .zc,.container .reset{
+	    		padding-left: 0.2rem;
+	    		margin-bottom: 0.4rem;
+	    		border:1px solid #ccc;
+	    		border-radius: 0.08rem;
+	    		outline: none;
+	    		width:5rem;
+	    		height: 0.7rem;
+	    		font-size: 0.22rem;
+	    	}
+	    	.container .text:focus{
+	    		border-color: #03a9f4;
+	            box-shadow: 0 0 6px #0480BE;
+				 transition: box-shadow 0.3s ease-out;
+	    	}
+	    	.container .btn{
+	    		background: #0088CC;
+	    		width:5.2rem;
+	    		height: 0.8rem;
+                color: #fff;
+                font-size: 0.28rem;
+	    	}
+	    	.container .btn:hover{
+	    		transition: all 0.3s ease-out;
+	    		background: #0077B3;
+	    	}
+	    	.container .zc{
+	    		border:1px solid #0480BE;
+	    		background: #fff;
+	    		color: #0480BE;
+	    		width:5.2rem;
+	    		height: 0.8rem;
+                font-size: 0.26rem;
+	    	}
+	    	.container .zc:hover{
+	    		transition: all 0.3s ease-out;
+	    		background: #0480BE;
+	    		color:#fff;
+	    	}
+	    	.container .reset{
+	    		border:1px solid #999;
+	    		background: #fff;
+	    		color: #aaa;
+	    		width:5.2rem;
+	    		height: 0.8rem;
+                font-size: 0.26rem;
+	    	}
+	    	.container .reset:hover{
+	    		transition: all 0.3s ease-out;
+	    		background: #aaa;
+	    		color:#fff;
+	    	}
+	    	.tip{
+	    		margin:0rem 0.6rem 0.4rem 0.6rem;
+	    		border-bottom: 1px solid #bbb;
+	    		font-size: 0.26rem;
+	    		color: #888;
+	    	}
+	    	.tip a{
+	    		text-decoration: none;
+	    		color: #0480BE;
+	    	}
+	    	.tip a:hover{
+	    		text-decoration: underline;
+	    	}
+	    	.spe{
+	    		margin-top: -0.2rem;
+	    		margin-bottom: 0.16rem;
+	    		font-size: 0.24rem;
+	    		color: red;
+	    	}
+	    </style>
+	</head>
+	<body>
+		<div class="container" id="dl">
+			<header>请登录</header>
+			<section>
+				<form name="sub" action="#">
+					<input class="text" type="text" placeholder="用户名" /><br />
+					<input class="text" type="text" placeholder="密码" />
+					<input class="btn" type="button" value="登录" />
+					<div class="tip"></div>
+					<input type="button" class="zc" id="zc" value="还没有账号 ？免费注册" onclick="zhuce();" />
+					<input type="button" class="reset" value="忘记密码 ？ 重置" onclick="reset1();" />
+					<input type="button" class="reset" value="使用第三方账号登录" onclick="qita();" />
+				</form>
+			</section>
+		</div>
+		<div class="container" id="zhuce" style="display: none;">
+			<header>注册</header>
+			<section>
+				<form name="sub" action="http://www.baidu.com" method="get" onsubmit="val();">
+					<input class="text" type="text" id="email" placeholder="邮箱" onfocus="foc();" />
+					<div id="spe1" class="spe"></div>
+					<input class="text" type="text" id="name" placeholder="姓名" onfocus="foc();" />
+					<div id="spe2" class="spe"></div>
+					<input class="text" type="text" id="pwd" placeholder="密码(字母、数字组合、不少于6位)" onfocus="foc();" />
+					<div id="spe3" class="spe"></div>
+					<input class="btn" type="submit" value="注册" />
+					<div class="tip">点击注册，即同意我们的 <a href="#">用户隐私条款</a></div>
+					<input type="button" class="zc" value="已有账号 ？登录" onclick="dl();" />
+					<input type="button" class="reset" value="使用第三方账号登录" onclick="qita();" />
+				</form>
+			</section>
+		</div>
+		<div class="container" id="reset1" style="display: none;">
+			<header>密码重置</header>
+			<section>
+				<form name="sub" action="#">
+					<input class="text" type="text" placeholder="请输入您的邮箱地址" />
+					<input class="btn" type="button" value="发送重置密码邮件" />
+					<div class="tip"></div>
+					<input type="button" class="zc" value="还没有账号 ？免费注册" onclick="zhuce();" />
+					<input type="button" class="reset" value="已有账号 ？登录" onclick="dl();"/>
+				</form>
+			</section>
+		</div>
+		<div class="container" id="qita" style="display: none;">
+			<header>第三方登录</header>
+			<section>
+				<form name="sub" action="#">
+					<input class="btn" type="button" value="qq账号登录" />
+					<input class="btn" type="button" value="新浪微博账号登录" />
+					<input class="btn" type="button" value="微信账号登录" />
+					<input class="btn" type="button" value="网易账号登录" />
+					<div class="tip"></div>
+					<input type="button" class="zc" value="还没有账号 ？免费注册" onclick="zhuce();" />
+					<input type="button" class="reset" value="已有账号 ？登录" onclick="dl();"/>
+				</form>
+			</section>
+		</div>
+		<script>
+			function __firefox(){
+		        HTMLElement.prototype.__defineGetter__("runtimeStyle", __element_style);
+		        window.constructor.prototype.__defineGetter__("event", __window_event);
+		        Event.prototype.__defineGetter__("srcElement", __event_srcElement);
+		    }
+		    function __element_style(){
+		        return this.style;
+		    }
+		    function __window_event(){
+		        return __window_event_constructor();
+		    }
+		    function __event_srcElement(){
+		        return this.target;
+		    }
+		    function __window_event_constructor(){
+		        if(document.all){
+		            return window.event;
+		        }
+		        var _caller = __window_event_constructor.caller;
+		        while(_caller!=null){
+		            var _argument = _caller.arguments[0];
+		            if(_argument){
+		                var _temp = _argument.constructor;
+		                if(_temp.toString().indexOf("Event")!=-1){
+		                    return _argument;
+		                }
+		            }
+		            _caller = _caller.caller;
+		        }
+		        return null;
+		    }
+			if(window.addEventListener){
+			        __firefox();
+			    }
+            //验证
+			function val(){
+			  var email=document.getElementById("email");
+			  var name=document.getElementById("name");
+			  var pwd=document.getElementById("pwd");
+			  var spe1=document.getElementById("spe1");
+			  var spe2=document.getElementById("spe2");
+			  var spe3=document.getElementById("spe3");
+			  var regPwd=/^\d{6}$/;
+			  var regEmail=/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/; 
+			  if(email.value==""){
+			  	spe1.innerHTML="邮箱不能为空";
+			  	event.preventDefault();
+			  }else if(!regEmail.test(email.value)){
+			  	spe1.innerHTML="邮箱格式不正确";
+			  	event.preventDefault();
+			  }
+			  if(name.value==""){
+			  	spe2.innerHTML="姓名不能为空";
+			  	event.preventDefault();
+			  }
+			  if(pwd.value==""){
+			  	spe3.innerHTML="密码不能为空";
+			  	event.preventDefault();
+			  }else if(!regPwd.test(pwd.value)){
+		          spe3.innerHTML="密码为6位数字";
+                  event.preventDefault();
+			  }
+		    }
+			function foc(){
+			  var spe1=document.getElementById("spe1");
+			  var spe2=document.getElementById("spe2");
+			  var spe3=document.getElementById("spe3");
+			  spe1.innerHTML="";
+			  spe2.innerHTML="";
+			  spe3.innerHTML="";
+			}
+			function zhuce(){
+				var dl=document.getElementById("dl");
+                var zhuce=document.getElementById("zhuce");
+                var reset1=document.getElementById("reset1");
+                var qita=document.getElementById("qita");
+                dl.style.display="none";
+                reset1.style.display="none";
+                qita.style.display="none";
+                zhuce.style.display="block";
+			}
+			function dl(){
+				var dl=document.getElementById("dl");
+                var zhuce=document.getElementById("zhuce");
+                var reset1=document.getElementById("reset1");
+                var qita=document.getElementById("qita");
+                dl.style.display="block";
+                zhuce.style.display="none";
+                reset1.style.display="none";
+                qita.style.display="none";
+			}
+			function reset1(){
+				var dl=document.getElementById("dl");
+				var zhuce=document.getElementById("zhuce");
+				var reset1=document.getElementById("reset1");
+				var qita=document.getElementById("qita");
+				dl.style.display="none";
+				zhuce.style.display="none";
+				qita.style.display="none";
+                reset1.style.display="block";
+			}
+			function qita(){
+				var dl=document.getElementById("dl");
+				var zhuce=document.getElementById("zhuce");
+				var reset1=document.getElementById("reset1");
+				var qita=document.getElementById("qita");
+				dl.style.display="none";
+				zhuce.style.display="none";
+				qita.style.display="block";
+                reset1.style.display="none";
+			}
+		</script>
+	</body>
+</html>
